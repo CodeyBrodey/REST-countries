@@ -4,8 +4,8 @@ import { useState } from 'react';
 
 
 function Card(props) {
-    const { cardOpen, setCardOpen } = useState(false);
-    const { name, flags, population, region, capital } = props.country;
+    const [ cardOpen, setCardOpen ] = useState(false);
+    const { name, flags, population, region, subregion, capital } = props.country;
 
     Card.propTypes = {
         country: PropTypes.shape({
@@ -17,13 +17,67 @@ function Card(props) {
             }).isRequired,
             population: PropTypes.number.isRequired,
             region: PropTypes.string.isRequired,
-            capital: PropTypes.string.isRequired,
+            subregion: PropTypes.string.isRequired,
+            capital: PropTypes.array,
         }).isRequired,
     };
 
     function handleClick() {
         setCardOpen(true);
-        console.log(cardOpen)
+    }
+
+    function handleBackClick() {
+        setCardOpen(false)
+    }
+
+    if(cardOpen === true) {
+        return(
+            <div className='card--open'>
+
+                <button className='card--open__button' onClick={ handleBackClick }> 
+                    <svg className='card--open__button__icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"/>
+                    </svg> Back
+                </button>
+
+                <img src={ flags.png } alt="" />
+
+                <div className='card--open__info'>
+                    <h2>{ name.common }</h2>
+
+                    <div className='card--open__info__details'>
+                        <p className='card__native'>Native Name: <span className='card__native--result'>fix me</span></p>
+
+                        <p className='card__population'>Population: <span className='card__population--result'>{ population.toLocaleString() }</span></p>
+
+                        <p className='card__region'>Region: <span className='card__region--result'>{ region }</span></p>
+
+                        <p className='card__subregion'>Sub Region: <span className='card__subregion--result'>{ subregion }</span></p>
+
+                        <p className='card__capital'>Capital: <span className='card__capital--result'>{ capital }</span></p>
+                    </div>
+
+                    <div className='card--open__info__technical'>
+                        <p className='card__domain'>Top Level Domain: <span className='card__domain--result'>fix me</span></p>
+
+                        <p className='card__currencies'>Currencies: <span className='card__currencies--result'>fix me</span></p>
+
+                        <p className='card__languages'>Languages: <span className='card__languages--result'>fix me</span></p>
+                    </div>
+
+                    <div className='card--open__info__borders'>
+                        <h3>Border Countries:</h3>
+                        <div className="card--open__info__borders__buttons">
+                            <button className='card--open__button'>fix me</button>
+                            <button className='card--open__button'>fix me</button>
+                            <button className='card--open__button'>fix me</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        )
     }
 
 
@@ -35,7 +89,9 @@ function Card(props) {
                 <h3 className='card__h3'>{ name.common }</h3>
                 <div className="card__info__details">
                     <p className='card__population'>Population: <span className='card__population--result'>{ population.toLocaleString() }</span></p>
+
                     <p className='card__region'>Region: <span className='card__region--result'>{ region }</span></p>
+
                     <p className='capital'>Capital: <span className='card__capital--result'>{ capital }</span></p>
                 </div>
             </div>

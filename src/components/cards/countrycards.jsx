@@ -15,7 +15,6 @@ function CountryCards() {
     useEffect(() => {
         getData();
     },[]);
-
     
 
     return (

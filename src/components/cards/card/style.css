@@ -1,6 +1,6 @@
 @import url(/src/App.css);
 
-.card{
+.card {
     margin: 2em auto 3em auto;
     max-width: 250px;
 
@@ -8,21 +8,21 @@
     border-radius: 5px;
 }
 
-.card__img{
+.card__img {
     max-width: 100%;
 
     border-radius: 5px 5px 0 0;
 }
 
-.card__h3{
+.card__h3 {
     font-size: 1.1rem;
 }
 
-.card__info{
+.card__info {
     padding: 1.5em;
 }
 
-.card__info__details{
+.card__info__details {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,6 +34,69 @@
     font-weight: 800;
 }
 
-.card__info__details span{
+.card--open__info p{
+    font-weight: 600;
+}
+
+.card__info__details span, .card--open__info span{
     font-weight: 400;
+}
+
+
+.card--open {
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+    min-height: 100vh;
+    padding: 0 8%;
+}
+
+.card--open__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    width: clamp(100px, 100px, 200px);
+    margin: 1em 0;
+    padding: 0.5em 0;
+
+    background-color: var(--white);
+    border: none;
+    box-shadow: 0 0 5px hsl(0, 0%, 60%);
+    font-family: var(--body-ff);
+    font-weight: 600;
+}
+
+.card--open__button__icon {
+    max-width: 15px;
+}
+
+.card--open__info {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.card--open__info > div{
+    margin: 0 0 1.5em 0;
+}
+
+.card--open__info__details, .card--open__info__technical{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+}
+
+.card--open__info h2 {
+    font-size: 1.5rem;
+}
+
+.card--open__info h3{
+    font-weight: 600;
+}
+
+.card--open__info__borders__buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: space-evenly;
 }
