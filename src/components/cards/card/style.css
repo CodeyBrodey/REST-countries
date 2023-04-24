@@ -1,3 +1,39 @@
 @import url(/src/App.css);
 
+.card{
+    margin: 2em auto 3em auto;
+    max-width: 250px;
 
+    box-shadow: 0 2px 5px hsl(0, 0%, 90%);
+    border-radius: 5px;
+}
+
+.card__img{
+    max-width: 100%;
+
+    border-radius: 5px 5px 0 0;
+}
+
+.card__h3{
+    font-size: 1.1rem;
+}
+
+.card__info{
+    padding: 1.5em;
+}
+
+.card__info__details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25em;
+    margin: 1em 0 1.5em 0;
+}
+
+.card__info__details p{
+    font-weight: 800;
+}
+
+.card__info__details span{
+    font-weight: 400;
+}
