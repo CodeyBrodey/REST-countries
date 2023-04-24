@@ -1,2 +1,31 @@
+:root {
+    --white: #fff;
+    --black: #000;
+  
+    /* dark mode clrs */
+    --blue: hsl(209, 23%, 22%);
+    --dark-blue: hsl(207, 26%, 17%);
+  
+    /* light mode */
+    --dark-blue-text: hsl(200, 15%, 8%);
+    --gray: hsl(0, 0%, 52%);
+    --light-gray: hsl(0, 0%, 98%);
+  
+    /* font-family */
+    --body-ff: 'Nunito Sans', sans-serif;
+  
+    /* box shadow */
+    --box-shadow: 0 0 10px hsl(0, 0%, 90%);
+  }
+  
+  
+  *, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-
+body{
+    font-family: var(--body-ff);
+    font-size: 14px;
+}

@@ -1,0 +1,62 @@
+@import url(/src/App.css);
+
+
+.filter{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 200px;
+    min-height: 50px;
+    margin: 3em 0 1em 5%;
+    padding: 0 2em 0 1.5rem;
+
+    box-shadow: var(--box-shadow);
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+
+    font-family: var(--body-ff);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.filter__icon{
+    max-width: 7px;
+}
+
+.filter__options{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+
+    width: 200px;
+    top: 55px;
+    left: 0;
+    padding: 1em 0;
+}
+
+.filter__options__btns{
+    background-color: transparent;
+    border: none;
+
+    padding: 0.35em 0 0.35em 1.5rem;
+
+    text-align: left;
+    font-family: var(--body-ff);
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.filter__options__btns:hover{
+    background-color: hsl(0, 0%, 90%);
+}
+
+.filter__options--open{
+    display: flex;
+    background-color: var(--white);
+}
