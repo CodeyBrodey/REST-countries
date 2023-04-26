@@ -8,7 +8,6 @@ function Card(props) {
     const { name, flags, population, region, subregion, capital } = props.country;
     
 
-
     Card.propTypes = {
         country: PropTypes.shape({
             name: PropTypes.shape({
@@ -27,6 +26,9 @@ function Card(props) {
 
     function handleClick() {
         setCardOpen(true);
+        window.scrollTo({
+            top: 0,
+          })
     }
 
     function handleBackClick() {
@@ -34,13 +36,18 @@ function Card(props) {
     }
 
     useEffect(() => {
+        const cards = document.querySelectorAll('.card');
         if(cardOpen){
-            const cards = document.querySelectorAll('.card');
             cards.forEach((card) => {
                 card.style.display = 'none';
             })
+        } else {
+            cards.forEach((card) => {
+                card.style.display = 'block';
+            })
         }
     }, [cardOpen])
+
 
     if(cardOpen === true) {
         return(
@@ -52,7 +59,7 @@ function Card(props) {
                     </svg> Back
                 </button>
 
-                <img src={ flags.png } alt="" />
+                <img className='card--open__img' src={ flags.png } alt="" />
 
                 <div className='card--open__info'>
                     <h2>{ name.common }</h2>

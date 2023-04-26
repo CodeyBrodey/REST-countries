@@ -55,7 +55,7 @@
     gap: 3em;
 
     min-height: fit-content;
-    padding: 100px 8% 0 8%;
+    padding: 100px 8% 2em 8%;
     
     background-color: var(--white);
     z-index: 10;
@@ -79,6 +79,10 @@
 
 .card--open__button__icon {
     max-width: 15px;
+}
+
+.card--open__img{
+    margin: 3.5em 0 3em 0;
 }
 
 .card--open__info {
