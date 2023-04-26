@@ -1,11 +1,13 @@
 import './style.css';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function Card(props) {
     const [ cardOpen, setCardOpen ] = useState(false);
     const { name, flags, population, region, subregion, capital } = props.country;
+    
+
 
     Card.propTypes = {
         country: PropTypes.shape({
@@ -17,9 +19,10 @@ function Card(props) {
             }).isRequired,
             population: PropTypes.number.isRequired,
             region: PropTypes.string.isRequired,
-            subregion: PropTypes.string.isRequired,
+            subregion: PropTypes.string,
             capital: PropTypes.array,
         }).isRequired,
+        
     };
 
     function handleClick() {
@@ -29,6 +32,15 @@ function Card(props) {
     function handleBackClick() {
         setCardOpen(false)
     }
+
+    useEffect(() => {
+        if(cardOpen){
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card) => {
+                card.style.display = 'none';
+            })
+        }
+    }, [cardOpen])
 
     if(cardOpen === true) {
         return(

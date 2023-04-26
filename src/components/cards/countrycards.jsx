@@ -15,10 +15,10 @@ function CountryCards() {
     useEffect(() => {
         getData();
     },[]);
-    
+
 
     return (
-        <div>
+        <div className='country-cards'>
           {countries.map((country) => (
             <Card key={country.name.common} country={country} />
           ))}
