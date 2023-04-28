@@ -5,13 +5,17 @@ import { useState, useEffect } from 'react';
 
 function Card(props) {
     const [ cardOpen, setCardOpen ] = useState(false);
-    const { name, flags, population, region, subregion, capital } = props.country;
-    
+    const { name, flags, population, region, subregion, capital, tld, currencies, languages } = props.country;
+    const nativeNames = name.nativeName;
+    let officialName;
+    let currency;
+    let language;
 
     Card.propTypes = {
         country: PropTypes.shape({
             name: PropTypes.shape({
             common: PropTypes.string.isRequired,
+            nativeName: PropTypes.object,
             }).isRequired,
             flags: PropTypes.shape({
             png: PropTypes.string.isRequired,
@@ -20,9 +24,26 @@ function Card(props) {
             region: PropTypes.string.isRequired,
             subregion: PropTypes.string,
             capital: PropTypes.array,
+            tld: PropTypes.array,
+            currencies: PropTypes.object,
+            languages: PropTypes.object,
         }).isRequired,
         
     };
+    
+
+    if (currencies && typeof currencies === 'object') {
+        Object.values(currencies).forEach((money) => {
+            currency = money.name;
+        });
+    }
+    
+    if (nativeNames && typeof nativeNames === 'object') {
+        Object.values(nativeNames).forEach((native) => {
+            officialName = native.official;
+        });
+    }
+
 
     function handleClick() {
         setCardOpen(true);
@@ -48,7 +69,7 @@ function Card(props) {
         }
     }, [cardOpen])
 
-
+    
     if(cardOpen === true) {
         return(
             <div className='card--open'>
@@ -65,7 +86,7 @@ function Card(props) {
                     <h2>{ name.common }</h2>
 
                     <div className='card--open__info__details'>
-                        <p className='card__native'>Native Name: <span className='card__native--result'>fix me</span></p>
+                        <p className='card__native'>Native Name: <span className='card__native--result'>{ officialName }</span></p>
 
                         <p className='card__population'>Population: <span className='card__population--result'>{ population.toLocaleString() }</span></p>
 
@@ -77,9 +98,9 @@ function Card(props) {
                     </div>
 
                     <div className='card--open__info__technical'>
-                        <p className='card__domain'>Top Level Domain: <span className='card__domain--result'>fix me</span></p>
+                        <p className='card__domain'>Top Level Domain: <span className='card__domain--result'>{tld[0]}</span></p>
 
-                        <p className='card__currencies'>Currencies: <span className='card__currencies--result'>fix me</span></p>
+                        <p className='card__currencies'>Currencies: <span className='card__currencies--result'>{currency}</span></p>
 
                         <p className='card__languages'>Languages: <span className='card__languages--result'>fix me</span></p>
                     </div>
