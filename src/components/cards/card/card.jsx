@@ -32,6 +32,12 @@ function Card(props) {
     };
     
 
+    if (languages && typeof languages === 'object') {
+        Object.values(languages).forEach((lang) => {
+            language = lang;
+        });
+    }
+
     if (currencies && typeof currencies === 'object') {
         Object.values(currencies).forEach((money) => {
             currency = money.name;
@@ -102,7 +108,7 @@ function Card(props) {
 
                         <p className='card__currencies'>Currencies: <span className='card__currencies--result'>{currency}</span></p>
 
-                        <p className='card__languages'>Languages: <span className='card__languages--result'>fix me</span></p>
+                        <p className='card__languages'>Languages: <span className='card__languages--result'>{language}</span></p>
                     </div>
 
                     <div className='card--open__info__borders'>
