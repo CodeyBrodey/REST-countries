@@ -1,18 +1,27 @@
 import './App.css'
-import Filter from './components/filter/filter'
 import Header from './components/header/header'
-import SearchBar from './components/search/search'
-import CountryCards from './components/cards/CountryCards'
+import CardDisplay from './components/CardDisplay/cardDisplay'
+import { useState, useEffect } from 'react'
 
 function App() {
-  
+  let [countries, setCountries] = useState([]);
+
+  async function getData() {
+    let res = await fetch('https://restcountries.com/v3.1/all');
+    const data = await res.json();
+    setCountries(data); 
+    console.log();
+  }
+
+  useEffect(() => {
+    getData();
+  },[]);
+
 
   return (
     <>
       <Header />
-      <SearchBar />
-      <Filter />
-      <CountryCards />
+      <CardDisplay cards={countries} />
     </>
   )
 }

@@ -11,6 +11,7 @@ function Card(props) {
     let currency;
     let language;
 
+
     Card.propTypes = {
         country: PropTypes.shape({
             name: PropTypes.shape({
@@ -125,7 +126,6 @@ function Card(props) {
             </div>
         )
     }
-
 
     return(
         <div className="card" onClick={ handleClick }>
