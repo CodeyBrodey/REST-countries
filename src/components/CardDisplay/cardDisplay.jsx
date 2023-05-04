@@ -5,20 +5,22 @@ import PropTypes from 'prop-types'
 
 function CardDisplay(props){
     const countryCards = props.cards;
+    const darkMode = props.darkMode;
 
     CardDisplay.propTypes = {
         cards: PropTypes.object.isRequired
     }
+    
 
 
     return (
         <>
-            <SearchBar />
-            <Filter />
+            <SearchBar isDarkMode={darkMode} />
+            <Filter isDarkMode={darkMode} />
             {countryCards && 
                 <div className='country-cards'>
                     {countryCards.map((country) => ( 
-                        <Card key={country.name.common} country={country} />
+                        <Card key={country.name.common} country={country} isDarkMode={darkMode} />
                     ))
                   }
                 </div>

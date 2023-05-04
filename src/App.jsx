@@ -4,7 +4,8 @@ import CardDisplay from './components/CardDisplay/cardDisplay'
 import { useState, useEffect } from 'react'
 
 function App() {
-  let [countries, setCountries] = useState([]);
+  let [ countries, setCountries ] = useState([]);
+  const [ darkModeActive, setDarkModeActive ] = useState(false)
 
   async function getData() {
     let res = await fetch('https://restcountries.com/v3.1/all');
@@ -20,8 +21,8 @@ function App() {
 
   return (
     <>
-      <Header />
-      <CardDisplay cards={countries} />
+      <Header isDarkMode={(value) => {setDarkModeActive(value)}} />
+      <CardDisplay cards={countries} darkMode={darkModeActive} />
     </>
   )
 }

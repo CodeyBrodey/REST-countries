@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './style.css'
 
-function Header() {
+function Header(props) {
     const [ darkMode, setDarkMode ] = useState(false);
 
     function handleDarkMode() {
-        setDarkMode(!darkMode)
+        setDarkMode(!darkMode);
+        props.isDarkMode(!darkMode);
     }
 
 
