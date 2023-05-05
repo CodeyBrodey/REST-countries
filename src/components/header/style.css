@@ -1,6 +1,6 @@
 @import url('/src/App.css');
 
-.header{
+.header {
     margin: 0 auto;
     padding: 0 5%;
     display: flex;
@@ -13,20 +13,20 @@
     background-color: var(--white);
 }
 
-.header--dark{
+.header--dark {
     margin: 0 auto;
     padding: 0 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    
+
     box-shadow: 0 2px 5px hsl(0, 0%, 10%);
     z-index: 100;
     background-color: var(--blue);
 }
 
-.header__title{
+.header__title {
     padding: 2.25em 0;
 
     font-size: 0.8rem;
@@ -34,7 +34,7 @@
     color: var(--black);
 }
 
-.header__title--dark{
+.header__title--dark {
     padding: 2.25em 0;
 
     font-size: 0.8rem;
@@ -42,7 +42,7 @@
     color: var(--white);
 }
 
-.header__btn{
+.header__btn {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -57,7 +57,7 @@
     cursor: pointer;
 }
 
-.header__btn--dark{
+.header__btn--dark {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -72,11 +72,11 @@
     cursor: pointer;
 }
 
-.header__btn__icon{
+.header__btn__icon {
     height: 15px;
 }
 
-.header__btn__icon--dark{
+.header__btn__icon--dark {
     height: 15px;
     fill: var(--white);
 }

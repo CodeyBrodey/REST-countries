@@ -6,6 +6,13 @@ import { useState, useEffect } from 'react'
 function App() {
   let [ countries, setCountries ] = useState([]);
   const [ darkModeActive, setDarkModeActive ] = useState(false)
+  const body = document.querySelector('body')
+
+  if(darkModeActive) {
+    body.style.backgroundColor = 'var(--dark-blue)'
+  } else {
+    body.style.backgroundColor = 'hsl(0, 0%, 98%)'
+  }
 
   async function getData() {
     let res = await fetch('https://restcountries.com/v3.1/all');

@@ -10,6 +10,7 @@ function Card(props) {
     let officialName;
     let currency;
     let language;
+    const darkMode = props.isDarkMode;
 
 
     Card.propTypes = {
@@ -29,7 +30,6 @@ function Card(props) {
             currencies: PropTypes.object,
             languages: PropTypes.object,
         }).isRequired,
-        
     };
     
 
@@ -64,7 +64,7 @@ function Card(props) {
     }
 
     useEffect(() => {
-        const cards = document.querySelectorAll('.card');
+        const cards = document.querySelectorAll('.card, .card--dark');
         if(cardOpen){
             cards.forEach((card) => {
                 card.style.display = 'none';
@@ -79,9 +79,9 @@ function Card(props) {
     
     if(cardOpen === true) {
         return(
-            <div className='card--open'>
+            <div className={darkMode ? 'card--open--dark' : 'card--open'}>
 
-                <button className='card--open__button' onClick={ handleBackClick }> 
+                <button className={darkMode ? 'card--open__button--dark' : 'card--open__button'} onClick={ handleBackClick }> 
                     <svg className='card--open__button__icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z"/>
                     </svg> Back
@@ -115,9 +115,9 @@ function Card(props) {
                     <div className='card--open__info__borders'>
                         <h3>Border Countries:</h3>
                         <div className="card--open__info__borders__buttons">
-                            <button className='card--open__button'>fix me</button>
-                            <button className='card--open__button'>fix me</button>
-                            <button className='card--open__button'>fix me</button>
+                            <button className={darkMode ? 'card--open__button--dark' : 'card--open__button'}>fix me</button>
+                            <button className={darkMode ? 'card--open__button--dark' : 'card--open__button'}>fix me</button>
+                            <button className={darkMode ? 'card--open__button--dark' : 'card--open__button'}>fix me</button>
                         </div>
                     </div>
 
@@ -128,7 +128,7 @@ function Card(props) {
     }
 
     return(
-        <div className="card" onClick={ handleClick }>
+        <div className={darkMode ? 'card--dark' : 'card'} onClick={ handleClick }>
             <img src={ flags.png } alt="" className='card__img'/>
 
             <div className="card__info">

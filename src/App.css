@@ -16,6 +16,7 @@
   
   /* box shadow */
   --box-shadow: 0 0 10px hsl(0, 0%, 90%);
+  --box-shadow-dark: 0 2px 5px hsl(0, 0%, 10%);
 }
   
   
