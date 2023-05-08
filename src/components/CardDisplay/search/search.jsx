@@ -1,5 +1,6 @@
 import './style.css';
 import Card from '../cards/card';
+import Filter from '../filter/filter';
 import { useState, useEffect } from 'react';
 
 function SearchBar(props) {
@@ -28,6 +29,7 @@ function SearchBar(props) {
                 </svg>
                 <input type="text" className={darkMode ? 'search-bar__input--dark' :    'search-bar__input'}   placeholder='Search for a country...' onChange={handleTextInput}/>
             </div>
+            <Filter isDarkMode={darkMode} />
             <div className='country-cards'>
                 {countryCards.filter((value) => {
                     if(searchActive === false) {
