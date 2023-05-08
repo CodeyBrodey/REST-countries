@@ -1,6 +1,6 @@
 import './App.css'
 import Header from './components/header/header'
-import CardDisplay from './components/CardDisplay/cardDisplay'
+import CardDisplay from './components/CardDisplay/CardDisplay'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <Header isDarkMode={(value) => {setDarkModeActive(value)}} />
-      <CardDisplay cards={countries} darkMode={darkModeActive} />
+      <CardDisplay countryCards={countries} darkMode={darkModeActive} />
     </>
   )
 }
