@@ -25,28 +25,31 @@
 .search-bar__icon{
     max-width: 15px;
     margin: 1em 2em;
+
     fill: var(--gray);
 }
 
 .search-bar__icon--dark{
     max-width: 15px;
     margin: 1em 2em;
+
     fill: var(--white);
 }
 
 .search-bar__input{
-    border: none;
     width: 100%;
+
     font-family: var(--body-ff);
+    border: none;
     border-radius: 5px;
 }
 
 .search-bar__input--dark{
-    border: none;
     width: 100%;
 
     font-family: var(--body-ff);
     color: var(--white);
+    border: none;
     border-radius: 5px;
     background-color: var(--blue);
 }
@@ -120,6 +123,7 @@
 
 .filter__icon--dark{
     max-width: 7px;
+    
     fill: var(--white);
 }
 
@@ -127,6 +131,7 @@
     position: absolute;
     top: 55px;
     left: 0;
+
     display: none;
     flex-direction: column;
     width: 200px;
@@ -169,10 +174,12 @@
 
 .filter__options--open{
     display: flex;
+
     background-color: var(--white);
 }
 
 .filter__options--open--dark{
     display: flex;
+
     background-color: var(--blue);
 }
