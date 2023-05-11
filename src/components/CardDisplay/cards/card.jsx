@@ -5,13 +5,15 @@ import { useState, useEffect } from 'react';
 
 function Card(props) {
     const [ cardOpen, setCardOpen ] = useState(false);
-    const { name, flags, population, region, subregion, capital, tld, currencies, languages } = props.country;
+    const countryCards = props.countryCards
+    const { name, flags, population, region, subregion, capital, tld, currencies, languages, borders, cca3 } = props.country;
     const nativeNames = name.nativeName;
     let officialName;
     let currency;
     let language;
     const darkMode = props.isDarkMode;
 
+    console.log()
 
     Card.propTypes = {
         country: PropTypes.shape({
@@ -75,6 +77,7 @@ function Card(props) {
             })
         }
     }, [cardOpen])
+    
 
     
     if(cardOpen === true) {
@@ -112,14 +115,29 @@ function Card(props) {
                         <p className='card__languages'>Languages: <span className='card__languages--result'>{language}</span></p>
                     </div>
 
-                    <div className='card--open__info__borders'>
-                        <h3>Border Countries:</h3>
-                        <div className="card--open__info__borders__buttons">
-                            <button className={darkMode ? 'card--open__button--dark' : 'card--open__button'}>fix me</button>
-                            <button className={darkMode ? 'card--open__button--dark' : 'card--open__button'}>fix me</button>
-                            <button className={darkMode ? 'card--open__button--dark' : 'card--open__button'}>fix me</button>
+                    {borders ?
+                        <div className='card--open__info__borders'>
+                            <h3>Border Countries:</h3>
+                            <div className="card--open__info__borders__buttons">
+                                {borders.map(border => {
+                                    const borderCountry = countryCards.find(c => c.cca3 === border);
+                                    function handleBorderClick() {
+                                        console.log(borderCountry)
+                                        setCardOpen(false)
+                                        borderCountry
+                                    }
+
+                                        return (
+                                            <button className={darkMode ? 'card--open__button--dark' : 'card--open__button'} key={border} onClick={handleBorderClick}>
+                                              {borderCountry.name.common}
+                                            </button>
+                                        );
+                                })}
+                            </div>
                         </div>
-                    </div>
+                        :
+                        null
+                    }
 
                 </div>
 

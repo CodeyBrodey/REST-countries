@@ -40,15 +40,16 @@
     margin: 1em 0 1.5em 0;
 }
 
-.card__info__details p{
+.card__info__details p {
     font-weight: 800;
 }
 
-.card--open__info p{
+.card--open__info p {
     font-weight: 600;
 }
 
-.card__info__details span, .card--open__info span{
+.card__info__details span,
+.card--open__info span {
     font-weight: 400;
 }
 
@@ -66,7 +67,7 @@
 
     min-height: fit-content;
     padding: 100px 8% 2em 8%;
-    
+
     background-color: var(--white);
     z-index: 10;
 }
@@ -84,7 +85,7 @@
 
     min-height: fit-content;
     padding: 100px 8% 2em 8%;
-    
+
     background-color: var(--dark-blue);
     z-index: 10;
     color: var(--white);
@@ -95,8 +96,8 @@
     justify-content: center;
     align-items: center;
     gap: 0.5em;
-    width: clamp(100px, 100px, 200px);
-    margin: 1em 0;
+    width: clamp(90px, 90px, 200px);
+    margin: 1.25em 0 0 0 ;
     padding: 0.5em 0;
 
     background-color: var(--white);
@@ -111,8 +112,8 @@
     justify-content: center;
     align-items: center;
     gap: 0.5em;
-    width: clamp(100px, 100px, 200px);
-    margin: 1em 0;
+    width: clamp(90px, 90px, 200px);
+    margin: 1.25em 0 0 0 ;
     padding: 0.5em 0;
 
     background-color: var(--blue);
@@ -128,7 +129,7 @@
     max-width: 15px;
 }
 
-.card--open__img{
+.card--open__img {
     margin: 3.5em 0 3em 0;
 }
 
@@ -138,11 +139,12 @@
     gap: 1em;
 }
 
-.card--open__info > div{
+.card--open__info>div {
     margin: 0 0 1.5em 0;
 }
 
-.card--open__info__details, .card--open__info__technical{
+.card--open__info__details,
+.card--open__info__technical {
     display: flex;
     flex-direction: column;
     gap: 0.75em;
@@ -152,12 +154,17 @@
     font-size: 1.5rem;
 }
 
-.card--open__info h3{
+.card--open__info h3 {
     font-weight: 600;
 }
 
 .card--open__info__borders__buttons {
-    display: flex;
-    gap: 1em;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-items: center;
 }
+
+
+@media(min-width: 600px){
+    
+} 

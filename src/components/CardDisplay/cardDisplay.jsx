@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 
 function CardDisplay(props) {
-    const darkMode = props.isDarkMode;
+    const darkMode = props.darkMode;
     const countryCards = props.countryCards;
     const [ searchActive, setSearchActive ] = useState(false)
     const [ filterOpen, setFilterOpen ] = useState(false)
@@ -113,7 +113,7 @@ function CardDisplay(props) {
                     }
                 })
                 .map((country) => ( 
-                    <Card key={country.name.common} country={country} isDarkMode={darkMode} />
+                    <Card key={country.name.common} country={country} isDarkMode={darkMode} countryCards={countryCards} />
                 ))
                 } 
             </div>
