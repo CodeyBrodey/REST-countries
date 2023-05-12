@@ -5,6 +5,9 @@ import { useState, useEffect } from 'react'
 
 
 function Card(props) {
+    /* General */
+    const [ borderCountry, setborderCountry ] = useState(null)
+
     /* PropTypes */
     Card.propTypes = {
         country: PropTypes.shape({
@@ -29,7 +32,7 @@ function Card(props) {
     }
 
     /* Props */
-    const { name, flags, population, region, subregion, capital, tld, currencies, languages, borders } = props.country
+    let { name, flags, population, region, subregion, capital, tld, currencies, languages, borders } = props.country
     const countryCards = props.countryCards
     const darkMode = props.darkMode
 
@@ -41,12 +44,12 @@ function Card(props) {
         setCardOpen(true)
         window.scrollTo({
             top: 0,
-          })
+        })
     }
 
     function handleBackClick() {
         setCardOpen(false)
-        setNewName(null)
+        setborderCountry(null)
     }
 
     useEffect(() => {
@@ -63,41 +66,44 @@ function Card(props) {
     }, [cardOpen])
 
 
-    /*  */
-    const [ newName, setNewName ] = useState(null)
-
-    let nativeNames = name.nativeName
-    let officialName
+    /* countryCards object value extraction */
+    let nativeName = name.nativeName
+    let officialNativeName
     let currency
     let language
 
-    if (languages && typeof languages === 'object') {
+    if(borderCountry !== null && languages && typeof languages === 'object') {
+        languages = borderCountry.languages
+        Object.values(languages).forEach((value) => {
+            language = value
+        })
+    } else if(languages && typeof languages === 'object') {
         Object.values(languages).forEach((value) => {
             language = value
         })
     }
 
-    if (currencies && typeof currencies === 'object') {
+    if(borderCountry !== null && languages && typeof languages === 'object') {
+        currencies = borderCountry.currencies
+        Object.values(currencies).forEach((value) => {
+            currency = value.name
+        })
+    } else if(currencies && typeof currencies === 'object') {
         Object.values(currencies).forEach((value) => {
             currency = value.name
         })
     }
     
-
-    if(newName !== null) {
-        nativeNames = newName.name.nativeName
-        Object.values(nativeNames).forEach((value) => {
-            officialName = value.official
+    if(borderCountry !== null && languages && typeof languages === 'object') {
+        nativeName = borderCountry.name.nativeName
+        Object.values(nativeName).forEach((value) => {
+            officialNativeName = value.official
         })
-        console.log(nativeNames)
-    } else
-    if (nativeNames && typeof nativeNames === 'object') {
-        Object.values(nativeNames).forEach((value) => {
-            officialName = value.official
+    } else if(nativeName && typeof nativeName === 'object') {
+        Object.values(nativeName).forEach((value) => {
+            officialNativeName = value.official
         })
     } 
-
-    
     
 
     if(cardOpen === true) {
@@ -109,25 +115,25 @@ function Card(props) {
                     </svg> Back
                 </button>
 
-                <img className='card--open__img' src={ newName ? newName.flags.png : flags.png } alt="" />
+                <img className='card--open__img' src={ borderCountry ? borderCountry.flags.png : flags.png } alt="" />
 
                 <div className='card--open__info'>
-                    <h2>{ newName ? newName.name.common : name.common }</h2>
+                    <h2>{ borderCountry ? borderCountry.name.common : name.common }</h2>
 
                     <div className='card--open__info__details'>
-                        <p className='card__native'>Native Name: <span className='card__native--result'>{ officialName }</span></p>
+                        <p className='card__native'>Native Name: <span className='card__native--result'>{ officialNativeName }</span></p>
 
-                        <p className='card__population'>Population: <span className='card__population--result'>{ population.toLocaleString() }</span></p>
+                        <p className='card__population'>Population: <span className='card__population--result'>{ borderCountry ? borderCountry.population.toLocaleString() : population.toLocaleString() }</span></p>
 
-                        <p className='card__region'>Region: <span className='card__region--result'>{ region }</span></p>
+                        <p className='card__region'>Region: <span className='card__region--result'>{ borderCountry ? borderCountry.region : region }</span></p>
 
-                        <p className='card__subregion'>Sub Region: <span className='card__subregion--result'>{ subregion }</span></p>
+                        <p className='card__subregion'>Sub Region: <span className='card__subregion--result'>{ borderCountry ? borderCountry.subregion : subregion }</span></p>
 
-                        <p className='card__capital'>Capital: <span className='card__capital--result'>{ capital }</span></p>
+                        <p className='card__capital'>Capital: <span className='card__capital--result'>{ borderCountry ? borderCountry.capital : capital }</span></p>
                     </div>
 
                     <div className='card--open__info__technical'>
-                        <p className='card__domain'>Top Level Domain: <span className='card__domain--result'>{ tld[0] }</span></p>
+                        <p className='card__domain'>Top Level Domain: <span className='card__domain--result'>{ borderCountry ? borderCountry.tld[0] : tld[0] }</span></p>
 
                         <p className='card__currencies'>Currencies: <span className='card__currencies--result'>{ currency }</span></p>
 
@@ -139,11 +145,11 @@ function Card(props) {
                             <h3>Border Countries:</h3>
 
                             <div className="card--open__info__borders__buttons">
-                                {newName && borders ?
-                                newName.borders.map(border => {
+                                {borderCountry && borders ?
+                                borderCountry.borders.map(border => {
                                     const borderCountry = countryCards.find(c => c.cca3 === border);
                                     function handleBorderClick() {
-                                        setNewName(borderCountry)
+                                        setborderCountry(borderCountry)
                                     }
 
                                     return (
@@ -155,7 +161,7 @@ function Card(props) {
                                 borders.map(border => {
                                     const borderCountry = countryCards.find(c => c.cca3 === border);
                                     function handleBorderClick() {
-                                        setNewName(borderCountry)
+                                        setborderCountry(borderCountry)
                                     }
 
                                     return (
