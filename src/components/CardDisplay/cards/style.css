@@ -165,7 +165,7 @@
 }
 
 .card--open__button__icon {
-    width: 15px;
+    min-width: 15px;
 }
 
 .card--open__img {
