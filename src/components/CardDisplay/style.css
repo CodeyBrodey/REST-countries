@@ -143,6 +143,11 @@
     cursor: pointer;
 }
 
+.filter:focus, 
+.filter--dark:focus{
+    outline: none;
+}
+
 .filter__icon{
     max-width: 7px;
 }

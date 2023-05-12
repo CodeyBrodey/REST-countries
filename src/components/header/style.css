@@ -28,6 +28,11 @@
     background-color: var(--blue);
 }
 
+.header:focus,
+.header--dark:focus{
+    outline: none;
+}
+
 .header__title {
     padding: 2.25em 0;
 
