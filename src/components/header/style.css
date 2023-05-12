@@ -83,3 +83,24 @@
     
     fill: var(--white);
 }
+
+
+@media(min-width: 900px) {
+    .header, .header--dark{
+        margin: 0 0 3em 0;
+    }
+
+    .header__title, .header__title--dark{
+        padding: 1em 0;
+
+        font-size: 1.5rem;
+    }
+
+    .header__btn, .header__btn--dark{
+        font-size: 1rem;
+    }
+
+    .header__btn__icon, .header__btn__icon--dark {
+        height: 20px;
+    }
+}
