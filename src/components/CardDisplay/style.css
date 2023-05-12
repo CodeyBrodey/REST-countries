@@ -11,6 +11,7 @@
     background-color: var(--white);
     box-shadow: var(--box-shadow);
     border-radius: 5px;
+    transition: 200ms ease-out;
 }
 
 .search-bar--dark{
@@ -22,6 +23,7 @@
     box-shadow: var(--box-shadow-dark);
     border-radius: 5px;
     background-color: var(--blue);
+    transition: 200ms ease-out;
 }
 
 .search-bar__icon{
@@ -76,6 +78,19 @@
     color: var(--white);
 }
 
+/* SEARCH and FILTER overlap */
+.search-bar:hover,
+.filter:hover{
+    box-shadow: 0 0 10px hsl(0, 0%, 80%);
+    transition: 200ms ease-in;
+}
+
+.search-bar--dark:hover,
+.filter--dark:hover{
+    box-shadow: 0 1px 15px hsl(0, 0%, 10%);
+    transition: 200ms ease-in;
+}
+
 
 /* FILTER */ 
 .filter{
@@ -93,6 +108,7 @@
     background-color: transparent;
     border: none;
     border-radius: 5px;
+    transition: 200ms ease-out;
 
     font-family: var(--body-ff);
     font-size: 0.75rem;
@@ -114,11 +130,17 @@
     background-color: var(--blue);
     border: none;
     border-radius: 5px;
+    transition: 200ms ease-out;
 
     font-family: var(--body-ff);
     font-size: 0.75rem;
     font-weight: 600;
     color: var(--white);
+}
+
+.filter:hover,
+.filter--dark:hover{
+    cursor: pointer;
 }
 
 .filter__icon{

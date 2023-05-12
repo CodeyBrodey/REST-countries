@@ -15,16 +15,33 @@
 
     box-shadow: 0 2px 5px hsl(0, 0%, 90%);
     border-radius: 6px;
+    transition: 100ms ease-out;
 }
 
 .card--dark {
     margin: 2em auto 0 auto;
     width: 250px;
 
-    box-shadow: var(--box-shadow-dark);
+    box-shadow: 0 2px 5px var(--box-shadow-dark);
     border-radius: 6px;
     color: var(--white);
     background-color: var(--blue);
+    transition: 100ms ease-out;
+}
+
+.card:hover,
+.card--dark:hover{
+    cursor: pointer;
+}
+
+.card:hover{
+    box-shadow: 0 7px 20px hsl(0, 0%, 90%);
+    transition: 200ms ease-in-out;
+}
+
+.card--dark:hover{
+    box-shadow: 0 7px 25px hsl(0, 0%, 10%);
+    transition: 200ms ease-in-out;
 }
 
 .card__img {
@@ -110,6 +127,7 @@
     box-shadow: 0 0 5px hsl(0, 0%, 60%);
     font-family: var(--body-ff);
     font-weight: 600;
+    transition: 100ms ease-out;
 }
 
 .card--open__button--dark {
@@ -125,9 +143,25 @@
     color: var(--white);
     fill: var(--white);
     border: none;
-    box-shadow: var(--box-shadow-dark);
+    box-shadow: 0 0 5px var(--box-shadow-dark);
     font-family: var(--body-ff);
     font-weight: 600;
+    transition: 100ms ease-out;
+}
+
+.card--open__button:hover,
+.card--open__button--dark:hover{
+    cursor: pointer;
+}
+
+.card--open__button:hover{
+    box-shadow: 0 0 10px hsl(0, 0%, 70%);
+    transition: 200ms ease-in-out
+}
+
+.card--open__button--dark:hover{
+    box-shadow: 0 0 15px hsl(0, 0%, 10%);
+    transition: 200ms ease-in-out
 }
 
 .card--open__button__icon {
