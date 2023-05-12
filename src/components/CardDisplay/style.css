@@ -1,5 +1,7 @@
 @import url(/src/App.css);
 
+
+/* SEARCH */
 .search-bar{
     display: flex;
     margin: 1.5em 5% 2em 5%;
@@ -74,6 +76,8 @@
     color: var(--white);
 }
 
+
+/* FILTER */ 
 .filter{
     position: relative;
     display: flex;
@@ -164,11 +168,13 @@
     border: none;
 }
 
-.filter__options__btns:hover, .filter__options__btns--active{
+.filter__options__btns:hover, 
+.filter__options__btns--active{
     background-color: hsl(0, 0%, 90%);
 }
 
-.filter__options__btns--dark:hover, .filter__options__btns--dark--active{
+.filter__options__btns--dark:hover, 
+.filter__options__btns--dark--active{
     background-color: var(--dark-blue);
 }
 
@@ -182,4 +188,24 @@
     display: flex;
 
     background-color: var(--blue);
+}
+
+
+@media(min-width: 900px) {
+    .CardDisplay-container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-bar,
+    .search-bar--dark{
+        min-width: 400px;
+        margin: 3em 5%;
+    }
+
+    .filter,
+    .filter--dark{
+        margin: 3em 5%;
+    }
 }
