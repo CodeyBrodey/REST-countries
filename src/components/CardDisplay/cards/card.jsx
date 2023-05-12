@@ -190,7 +190,7 @@ function Card(props) {
             <img src={ flags.png } alt="" className='card__img'/>
 
             <div className="card__info">
-                <h3 className='card__h3'>{ name.common }</h3>
+                <h2 className='card__h2'>{ name.common }</h2>
 
                 <div className="card__info__details">
                     <p className='card__population'>Population: <span className='card__population--result'>{ population.toLocaleString() }</span></p>
