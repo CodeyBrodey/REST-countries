@@ -27,14 +27,14 @@
 }
 
 .search-bar__icon{
-    min-width: 15px;
+    width: clamp(13px, 15px, 15px);
     margin: 1em 2em;
 
     fill: var(--gray);
 }
 
 .search-bar__icon--dark{
-    min-width: 15px;
+    width: clamp(13px, 15px, 15px);
     margin: 1em 2em;
 
     fill: var(--white);
@@ -149,11 +149,11 @@
 }
 
 .filter__icon{
-    min-width: 7px;
+    width: clamp(7px, 8px, 9px);
 }
 
 .filter__icon--dark{
-    min-width: 7px;
+    width: clamp(7px, 8px, 9px);
     
     fill: var(--white);
 }
