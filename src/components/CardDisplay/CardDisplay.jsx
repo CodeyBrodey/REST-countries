@@ -55,7 +55,7 @@ function CardDisplay(props) {
                     <input className={ darkModeActive ? 'search-bar__input--dark' : 'search-bar__input' } type="text" placeholder='Search for a country...' onChange={ handleSearchInput } />
                 </div>
 
-                <button className={ darkModeActive ? 'filter--dark' : 'filter' } onClick={ handleFilterClick }>
+                <button className={ darkModeActive ? 'filter--dark' : 'filter' } onKeyDown={ handleFilterClick }>
                     <span className='filter__text'>{ filterOptionStatus === null ? 'Filter by Region' : filterOptionStatus }</span>
 
                     <svg className={ darkModeActive ? 'filter__icon--dark' : 'filter__icon' } xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
