@@ -3,7 +3,7 @@ import './App.css'
 import { useState, useEffect } from 'react'
 
 import Header from './components/header/header'
-import CardDisplay from './components/CardDisplay/CardDisplay.jsx'
+import CardDisplay from './components/CardDisplay/cardDisplay'
 
 
 function App() {
