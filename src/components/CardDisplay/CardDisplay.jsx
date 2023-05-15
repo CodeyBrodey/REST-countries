@@ -22,7 +22,7 @@ function CardDisplay(props) {
     const [ searchActive, setSearchActive ] = useState(false)
     const [ searchQuery, setSearchQuery ] = useState('')
 
-    useEffect(() => { setSearchActive(searchQuery !== ''), console.log(searchQuery) }, [searchQuery])
+    useEffect(() => { setSearchActive(searchQuery !== '')}, [searchQuery])
 
     function handleSearchInput(event) {
         setSearchQuery(event.target.value.toLowerCase())
